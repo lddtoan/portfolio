@@ -1,0 +1,100 @@
+@use "../../styles/base";
+
+.container {
+  padding: 32px;
+
+  @include base.media((laptop)) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 100%;
+  }
+
+  @include base.media((desktop)) {
+    padding-right: 0px;
+  }
+}
+
+.content-container {
+  color: #fff;
+  transition: opacity 1s linear 500ms;
+
+  @include base.media((laptop)) {
+    width: 600px;
+  }
+
+  &--hidden {
+    opacity: 0;
+  }
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 32px;
+
+  @include base.media((tablet)) {
+    text-align: right;
+  }
+}
+
+.content {
+  font-size: 1.2rem;
+  text-align: justify;
+  margin-top: 16px;
+
+  @include base.media((tablet)) {
+    text-align: right;
+  }
+
+  &__link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.selfie-container {
+  background-color: #ced3d4;
+  border-radius: 16px;
+  opacity: 0.6;
+
+  margin-top: 48px;
+
+  display: flex;
+  justify-content: center;
+
+  @include base.media((tablet)) {
+    justify-content: flex-end;
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(206, 211, 212, 0),
+      rgba(206, 211, 212, 0.8)
+    );
+  }
+
+  @include base.media((laptop)) {
+    margin-top: 0px;
+    margin-left: 48px;
+    width: 352px;
+  }
+}
+
+.selfie-image {
+  max-height: 352px;
+  margin: 4%;
+
+  path {
+    fill: transparent;
+
+    &.black {
+      fill: #111;
+    }
+  }
+
+  &--black {
+    path {
+      fill: #111;
+    }
+  }
+}

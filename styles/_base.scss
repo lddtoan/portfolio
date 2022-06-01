@@ -1,0 +1,13 @@
+$breakpoints: (
+  tablet: 600px,
+  laptop: 900px,
+  desktop: 1200px,
+);
+
+@mixin media($devices) {
+  @each $device in $devices {
+    @media only screen and (min-width: map-get($breakpoints, $device)) {
+      @content;
+    }
+  }
+}

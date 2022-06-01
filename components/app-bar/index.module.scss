@@ -1,0 +1,85 @@
+@use "../../styles/base";
+
+.container {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: calc(100vw - 32px);
+  height: 48px;
+  background-color: #111;
+  opacity: 0.6;
+
+  display: flex;
+  justify-content: flex-end;
+
+  @include base.media((tablet)) {
+    left: 32px;
+    width: calc(100vw - 64px);
+  }
+
+  @include base.media((laptop)) {
+    left: 64px;
+    width: calc(100vw - 128px);
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(17, 17, 17, 0),
+      rgba(17, 17, 17, 0.8)
+    );
+  }
+
+  @include base.media((desktop)) {
+    padding-right: 64px;
+  }
+}
+
+.route-button {
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+  color: #999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &--active {
+    color: #fff;
+  }
+
+  @include base.media((desktop)) {
+    flex-grow: 0;
+    width: 200px;
+    align-items: flex-end;
+  }
+
+  &__icon {
+    font-size: 1.8rem;
+
+    @include base.media((tablet)) {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    @include base.media((laptop)) {
+      display: none;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include base.media((tablet)) {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    @include base.media((laptop)) {
+      font-size: 1.2rem;
+    }
+  }
+}
