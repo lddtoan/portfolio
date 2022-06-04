@@ -1,6 +1,6 @@
 @use "../../styles/base";
 
-.content-container {
+.container {
   color: #fff;
   padding: 32px;
   transition: opacity 1s linear 500ms;
@@ -11,6 +11,8 @@
 
   @include base.media((laptop)) {
     align-items: flex-end;
+    justify-content: center;
+    min-height: 100%;
   }
 
   @include base.media((desktop)) {
@@ -25,21 +27,40 @@
 .header {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 
   @include base.media((laptop)) {
     text-align: right;
   }
 }
 
-.content {
+.cv-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 16px;
+  width: 156px;
+  margin-bottom: 32px;
+  cursor: pointer;
+
+  &__icon {
+    margin-right: 8px;
+  }
+}
+
+.content-container {
   @include base.media((laptop)) {
     display: flex;
   }
 }
 
-.content-body {
+.content {
   max-width: 600px;
+
+  @include base.media((laptop)) {
+    height: 224px;
+  }
 
   &--hidden {
     @include base.media((laptop)) {

@@ -33,7 +33,7 @@ const About = ({ display, content }: PageProps) => {
         return () => clearInterval(interval);
       }, 500);
     }
-  });
+  }, [display, animate]);
 
   return (
     <div className={styles["container"]}>

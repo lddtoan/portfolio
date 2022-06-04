@@ -16,62 +16,66 @@ const Work = ({ display, content }: PageProps) => {
   );
 
   return (
-    <div className={styles["container"]}>
-      <div
-        className={classNames(
-          styles["content-container"],
-          !display && styles["content-container--hidden"]
-        )}
-      >
-        <div className={styles["header"]}>Where I've Worked</div>
+    <div
+      className={classNames(
+        styles["container"],
+        !display && styles["container--hidden"]
+      )}
+    >
+      <div className={styles["header"]}>Where I&apos;ve Worked</div>
+      <button className={styles["cv-button"]}>
+        <i
+          className={classNames("lni lni-download", styles["cv-button__icon"])}
+        />
+        CV
+      </button>
+      <div className={styles["content-container"]}>
         <div className={styles["content"]}>
-          <div className={styles["content-body"]}>
-            {content?.map(({ content }, contentIndex) => (
-              <div
-                key={contentIndex}
-                className={classNames(
-                  contentIndex % 3 === 0 && styles["content-body__header"],
-                  contentIndex % 3 === 1 && styles["content-body__sub-header"],
-                  tab !== Math.floor(contentIndex / 3) &&
-                    styles["content-body--hidden"]
-                )}
-              >
-                {content.map(({ content, value, nodeType }, itemIndex) => {
-                  switch (nodeType) {
-                    case "list-item":
-                      return (
-                        <div
-                          key={itemIndex}
-                          className={classNames(
-                            styles["content-body__item"],
-                            tab !== Math.floor(contentIndex / 3) &&
-                              styles["content-body--hidden"]
-                          )}
-                        >
-                          {content?.at(0).content[0].value}
-                        </div>
-                      );
-                    default:
-                      return <div key={itemIndex}>{value}</div>;
-                  }
-                })}
-              </div>
-            ))}
-          </div>
-          <div className={styles["tabs"]}>
-            {tabs?.map((element, index) => (
-              <button
-                key={index}
-                className={classNames(
-                  styles["tab-button"],
-                  tab === index && styles["tab-button--active"]
-                )}
-                onClick={() => setTab(index)}
-              >
-                {element}
-              </button>
-            ))}
-          </div>
+          {content?.map(({ content }, contentIndex) => (
+            <div
+              key={contentIndex}
+              className={classNames(
+                contentIndex % 3 === 0 && styles["content__header"],
+                contentIndex % 3 === 1 && styles["content__sub-header"],
+                tab !== Math.floor(contentIndex / 3) &&
+                  styles["content--hidden"]
+              )}
+            >
+              {content.map(({ content, value, nodeType }, itemIndex) => {
+                switch (nodeType) {
+                  case "list-item":
+                    return (
+                      <div
+                        key={itemIndex}
+                        className={classNames(
+                          styles["content__item"],
+                          tab !== Math.floor(contentIndex / 3) &&
+                            styles["content--hidden"]
+                        )}
+                      >
+                        {content?.at(0).content[0].value}
+                      </div>
+                    );
+                  default:
+                    return <div key={itemIndex}>{value}</div>;
+                }
+              })}
+            </div>
+          ))}
+        </div>
+        <div className={styles["tabs"]}>
+          {tabs?.map((element, index) => (
+            <button
+              key={index}
+              className={classNames(
+                styles["tab-button"],
+                tab === index && styles["tab-button--active"]
+              )}
+              onClick={() => setTab(index)}
+            >
+              {element}
+            </button>
+          ))}
         </div>
       </div>
     </div>
