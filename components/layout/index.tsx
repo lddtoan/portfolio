@@ -31,7 +31,7 @@ const Layout = ({ children }: LayoutProps) => {
     } else if (!visit.includes(pathname)) {
       setVisit([...visit, pathname]);
     }
-  });
+  }, [count, splash, visit, pathname]);
 
   return (
     <>
