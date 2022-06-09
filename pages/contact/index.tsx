@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { PageProps } from "../../shared/const";
 import styles from "./index.module.scss";
 import { getContent } from "../../shared/helper";
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useForm } from "@formspree/react";
 
 export const getStaticProps = async () => {
@@ -18,7 +18,7 @@ const Contact = ({ display, content }: PageProps) => {
     <div
       className={classNames(
         styles["container"],
-        !display && styles["container"]
+        !display && styles["container--hidden"]
       )}
     >
       <div className={styles["header"]}>Get in Touch</div>

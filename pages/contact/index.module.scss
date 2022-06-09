@@ -73,9 +73,11 @@
 
 .input-container {
   border-radius: 8px;
+  border: 1px solid #fff;
 
   legend {
     font-size: 0.8rem;
+    text-align: left;
   }
 }
 
@@ -86,6 +88,11 @@
   outline: 0px;
   color: #fff;
   font-size: 1rem;
+
+  &::placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
 }
 
 .submit-button {
