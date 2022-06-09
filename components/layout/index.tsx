@@ -29,7 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
       const timeout = setTimeout(() => setCount(count + 1), 200);
       return () => clearTimeout(timeout);
     } else if (!visit.includes(pathname)) {
-      setVisit([...visit, pathname]);
+      window.requestAnimationFrame(() => setVisit([...visit, pathname])); // prevent re-render before browser paint
     }
   }, [count, splash, visit, pathname]);
 
