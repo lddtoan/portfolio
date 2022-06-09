@@ -44,20 +44,22 @@ const About = ({ display, content }: PageProps) => {
         )}
       >
         <div className={styles["header"]}>About Me</div>
-        {content?.map(({ content }, index) => (
-          <div key={index} className={styles["content"]}>
-            {content.map(({ data, content, value, nodeType }, index) => {
+        {content?.map(({ content }, contentIndex) => (
+          <div key={contentIndex} className={styles["content"]}>
+            {content.map(({ data, content, value, nodeType }, itemIndex) => {
               switch (nodeType) {
                 case "hyperlink":
                   return (
-                    <Link key={index} href={data?.uri || "/"} passHref>
-                      <span className={styles["content__link"]}>
-                        {content?.at(0).value}
-                      </span>
-                    </Link>
+                    <span
+                      key={itemIndex}
+                      className={styles["content__link"]}
+                      onClick={() => window.open(data?.uri)}
+                    >
+                      {content?.at(0).value}
+                    </span>
                   );
                 default:
-                  return <span key={index}>{value}</span>;
+                  return <span key={itemIndex}>{value}</span>;
               }
             })}
           </div>
