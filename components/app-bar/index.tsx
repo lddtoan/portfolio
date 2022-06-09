@@ -16,6 +16,7 @@ const AppBar = () => {
               styles["route-button"],
               url === pathname && styles["route-button--active"]
             )}
+            aria-label={name}
           >
             <i className={classNames(icon, styles["route-button__icon"])} />
             <span className={styles["route-button__text"]}>{name}</span>
