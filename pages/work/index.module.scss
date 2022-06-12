@@ -70,16 +70,30 @@
 
   &__header {
     font-size: 1.4rem;
+    position: relative;
 
-    &:not(:first-child) {
+    &:not(:first-child):not(:last-child) {
       margin-top: 32px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        top: -16px;
+        background-color: #fff;
+      }
     }
 
     @include base.media((laptop)) {
       text-align: right;
 
-      &:not(:first-child) {
+      &:not(:first-child):not(:last-child) {
         margin-top: 0px;
+
+        &::before {
+          content: none;
+        }
       }
     }
   }

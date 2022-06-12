@@ -59,7 +59,7 @@ const Contact = ({ display, content }: PageProps) => {
             name="message"
             required
             className={styles["input"]}
-            rows={5}
+            rows={3}
             placeholder="Type your message..."
           />
         </fieldset>

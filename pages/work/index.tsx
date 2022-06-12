@@ -23,7 +23,12 @@ const Work = ({ display, content }: PageProps) => {
       )}
     >
       <div className={styles["header"]}>Where I&apos;ve Worked</div>
-      <button className={styles["cv-button"]}>
+      <button
+        className={styles["cv-button"]}
+        onClick={() =>
+          window.open(`${window.location.origin}/assets/resume.pdf`)
+        }
+      >
         <i
           className={classNames("lni lni-download", styles["cv-button__icon"])}
         />
@@ -47,11 +52,7 @@ const Work = ({ display, content }: PageProps) => {
                     return (
                       <div
                         key={itemIndex}
-                        className={classNames(
-                          styles["content__item"],
-                          tab !== Math.floor(contentIndex / 3) &&
-                            styles["content--hidden"]
-                        )}
+                        className={classNames(styles["content__item"])}
                       >
                         {content?.at(0).content[0].value}
                       </div>

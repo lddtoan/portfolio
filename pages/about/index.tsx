@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { PageProps } from "../../shared/const";
 import { getContent } from "../../shared/helper";
 import Selfie from "../../public/images/me.svg";
-import Link from "next/link";
 
 export const getStaticProps = async () => {
   return await getContent("about");

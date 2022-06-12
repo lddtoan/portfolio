@@ -8,6 +8,7 @@ import {
   ReactNode,
   useState,
   useEffect,
+  useRef,
 } from "react";
 import { routes } from "../../shared/const";
 import AppBar from "../app-bar";
@@ -19,6 +20,7 @@ export interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const container = useRef<HTMLDivElement>(null);
   const { pathname } = useRouter();
   const [splash, setSplash] = useState(true);
   const [count, setCount] = useState(0);
@@ -29,9 +31,14 @@ const Layout = ({ children }: LayoutProps) => {
       const timeout = setTimeout(() => setCount(count + 1), 200);
       return () => clearTimeout(timeout);
     } else if (!visit.includes(pathname)) {
-      window.requestAnimationFrame(() => setVisit([...visit, pathname])); // prevent re-render before browser paint
+      // next line: prevent re-render before browser paint to display fade effect in chromium based browsers
+      window.requestAnimationFrame(() => setVisit([...visit, pathname]));
     }
   }, [count, splash, visit, pathname]);
+
+  useEffect(() => {
+    container.current?.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -74,7 +81,7 @@ const Layout = ({ children }: LayoutProps) => {
         }}
       />
       <AppBar />
-      <div className={styles["container"]}>
+      <div className={styles["container"]} ref={container}>
         {Children.map(children, (element) =>
           cloneElement(element as ReactElement, {
             display: visit.includes(pathname),
