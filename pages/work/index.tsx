@@ -23,17 +23,6 @@ const Work = ({ display, content }: PageProps) => {
       )}
     >
       <div className={styles["header"]}>Where I&apos;ve Worked</div>
-      <button
-        className={styles["cv-button"]}
-        onClick={() =>
-          window.open(`${window.location.origin}/assets/resume.pdf`)
-        }
-      >
-        <i
-          className={classNames("lni lni-download", styles["cv-button__icon"])}
-        />
-        CV
-      </button>
       <div className={styles["content-container"]}>
         <div className={styles["content"]}>
           {content?.map(({ content }, contentIndex) => (
@@ -43,7 +32,7 @@ const Work = ({ display, content }: PageProps) => {
                 contentIndex % 3 === 0 && styles["content__header"],
                 contentIndex % 3 === 1 && styles["content__sub-header"],
                 tab !== Math.floor(contentIndex / 3) &&
-                  styles["content--hidden"]
+                styles["content--hidden"]
               )}
             >
               {content.map(({ content, value, nodeType }, itemIndex) => {
