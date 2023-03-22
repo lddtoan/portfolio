@@ -59,6 +59,20 @@
   max-width: 600px;
 
   @include base.media((laptop)) {
+    overflow: auto;
+
+    direction: rtl;
+    padding-left: 4rem;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+      background-color: 'transparent';
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #fff;
+    }
+
     height: 224px;
   }
 
