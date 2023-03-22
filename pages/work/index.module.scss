@@ -82,6 +82,10 @@
     }
   }
 
+  &__wrapper {
+    direction: ltr;
+  }
+
   &__header {
     font-size: 1.4rem;
     position: relative;

@@ -25,33 +25,35 @@ const Work = ({ display, content }: PageProps) => {
       <div className={styles["header"]}>Where I&apos;ve Worked</div>
       <div className={styles["content-container"]}>
         <div className={styles["content"]}>
-          {content?.map(({ content }, contentIndex) => (
-            <div
-              key={contentIndex}
-              className={classNames(
-                contentIndex % 3 === 0 && styles["content__header"],
-                contentIndex % 3 === 1 && styles["content__sub-header"],
-                tab !== Math.floor(contentIndex / 3) &&
-                styles["content--hidden"]
-              )}
-            >
-              {content.map(({ content, value, nodeType }, itemIndex) => {
-                switch (nodeType) {
-                  case "list-item":
-                    return (
-                      <div
-                        key={itemIndex}
-                        className={classNames(styles["content__item"])}
-                      >
-                        {content?.at(0).content[0].value}
-                      </div>
-                    );
-                  default:
-                    return <div key={itemIndex}>{value}</div>;
-                }
-              })}
-            </div>
-          ))}
+          <div className={styles['content__wrapper']}>
+            {content?.map(({ content }, contentIndex) => (
+              <div
+                key={contentIndex}
+                className={classNames(
+                  contentIndex % 3 === 0 && styles["content__header"],
+                  contentIndex % 3 === 1 && styles["content__sub-header"],
+                  tab !== Math.floor(contentIndex / 3) &&
+                  styles["content--hidden"]
+                )}
+              >
+                {content.map(({ content, value, nodeType }, itemIndex) => {
+                  switch (nodeType) {
+                    case "list-item":
+                      return (
+                        <div
+                          key={itemIndex}
+                          className={classNames(styles["content__item"])}
+                        >
+                          {content?.at(0).content[0].value}
+                        </div>
+                      );
+                    default:
+                      return <div key={itemIndex}>{value}</div>;
+                  }
+                })}
+              </div>
+            ))}
+          </div>
         </div>
         <div className={styles["tabs"]}>
           {tabs?.map((element, index) => (
