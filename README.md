@@ -23,4 +23,4 @@ or using Docker:
 docker compose up
 ```
 
-\*Note: this repo may not work for you but feel free to take it.\*
+_Note: this repo may not work for you but feel free to take it._
