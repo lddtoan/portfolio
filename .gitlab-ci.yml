@@ -11,5 +11,6 @@ build-node:
 
 test-helper:
   stage: test
+  needs: [build-node]
   script:
     - yarn test
