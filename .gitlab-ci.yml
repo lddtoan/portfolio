@@ -1,0 +1,16 @@
+image: node
+
+stages:
+  - build
+  - test
+
+build-node:
+  type: build
+  script:
+    - yarn install
+
+test-helper:
+  type: test
+  dependencies: build-node
+  script:
+    - yarn test

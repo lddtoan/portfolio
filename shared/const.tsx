@@ -1,19 +1,17 @@
-import { ReactNode } from "react";
-
 export const routes = [
   { name: "about", url: "/about", title: "About Me", icon: "lni lni-user" },
   {
     name: "work",
     url: "/work",
     title: "Where I've Worked",
-    icon: "lni lni-pulse",
+    icon: "lni lni-pulse"
   },
   {
     name: "contact",
     url: "/contact",
     title: "Get in Touch",
-    icon: "lni lni-envelope",
-  },
+    icon: "lni lni-envelope"
+  }
 ];
 
 export interface PageProps {
