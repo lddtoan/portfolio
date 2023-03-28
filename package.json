@@ -15,6 +15,7 @@
     "@types/jest": "^29.5.0",
     "classnames": "^2.3.1",
     "contentful": "^9.1.29",
+    "dotenv": "^16.0.3",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",

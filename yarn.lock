@@ -3943,6 +3943,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -7019,6 +7026,7 @@ __metadata:
     "@types/react-dom": 18.0.5
     classnames: ^2.3.1
     contentful: ^9.1.29
+    dotenv: ^16.0.3
     eslint: 8.16.0
     eslint-config-next: 12.1.6
     husky: ^8.0.3
