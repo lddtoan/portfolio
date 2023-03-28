@@ -5,12 +5,11 @@ stages:
   - test
 
 build-node:
-  type: build
+  stage: build
   script:
     - yarn install
 
 test-helper:
-  type: test
-  dependencies: build-node
+  stage: test
   script:
     - yarn test
