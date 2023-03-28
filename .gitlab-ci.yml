@@ -1,16 +1,19 @@
 image: node
 
+before_script:
+  - yarn install
+
 stages:
+  - unit-test
   - build
-  - test
 
 build-node:
   stage: build
   script:
-    - yarn install
+    - yarn build
 
 test-helper:
-  stage: test
-  needs: [build-node]
+  stage: unit-test
+  before_script:
   script:
     - yarn test
