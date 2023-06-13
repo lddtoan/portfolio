@@ -8,5 +8,6 @@
     "**/node_modules/*/**": true,
     "**/.hg/store/**": true
   },
+  "prettier.prettierPath": "./node_modules/prettier",
   "terminal.integrated.defaultProfile.windows": "Command Prompt"
 }

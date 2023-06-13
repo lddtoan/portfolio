@@ -13,8 +13,8 @@ Run following commands:
 
 ```
 yarn install
-yarn build
-yarn start
+yarn prepare
+yarn dev
 ```
 
 or using Docker:
@@ -22,5 +22,3 @@ or using Docker:
 ```
 docker compose up
 ```
-
-_Note: this repo may not work for you but feel free to take it._
